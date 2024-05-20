@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="EvALign-ICL">
+  <meta name="keywords" content="EvALign-ICL">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EvALign-ICL</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<!-- logo -->
+<div align="center" style="margin-top:-1cm; margin-bottom:-3cm;">
+  <div class="teaser-padding">
+    <div class="hero-body">
+      <div class="container">
+        <figure class="teaser">
+          <img class="teaser-image" style='height: auto; width: 45%; object-fit: contain' src="static/images/logo.jpg"/>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<!-- Title and authors -->
+<section class="hero" style="margin-top: -1cm;">
+  <div class="hero-body publication-header">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2"> Implicit Multimodal Alignment: On the Generalization of Frozen LLMs to Multimodal Inputs</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=en&user=lhp9mRgAAAAJ&view_op=list_works&sortby=pubdate">Mustafa Shukor<sup>a</sup></a>, 
+            </span>
+            <span class="author-block">
+              <a href="https://cord.isir.upmc.fr/">Matthieu Cord<sup>a,b</sup></a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">a) Sorbonne University  &nbsp; &nbsp;  b) Valeo.ai &nbsp; </span>
+          </div>
+
+          <!-- <div class="is-size-10 publication-authors">
+            (*Equal contribution)
+          </div> -->
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <!-- <span class="link-block">
+                <a href="https://openreview.net/forum?id=mMaQvkMzDi&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DICLR.cc%2F2024%2FConference%2FAuthors%23your-submissions)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span>ICLR24 Paper</span>
+                </a>
+              </span> -->
+
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2310."
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/mshukor/ima-llms"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- <span class="link-block">
+                <a href="https://"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src = "static/images/colab-logo.svg" alt="colab-logo"/>
+                  </span>
+                  <span>Colab</span>
+                  </a>
+              </span> -->
+
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#BibTeX"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span>BibTex</span>
+                  </a>
+              </span>
+
+              <!-- <span class="link-block">
+                <a href="https://twitter.com/MustafaShukor1/status/1680902461362429955?s=20"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src = "static/images/twitter.svg" alt="twitter-logo"/>
+                  </span>
+                  <span>Thread</span>
+                  </a>
+              </span> -->
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main image summarizing the work -->
+<div align="center" style="margin-top:-1cm; margin-bottom:0px;">
+  <div class="teaser-padding">
+    <div class="hero-body">
+      <div class="container">
+        <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+
+        <figure class="teaser">
+          <img class="teaser-image" style='height: auto; width: 85%; object-fit: contain' src="static/images/main.jpg"/>
+          <!-- <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title">This is.</span>
+              <p class="teaser-description">Lilith is .</p>
+            </div>
+          </figcaption> -->
+        </figure>
+
+          <!-- <div class="item item-toby">
+            <video poster="" autoplay playsinline muted loop>
+              <source type="video/mp4" src="static/videos/teaser_video_1_compressed.mp4" />
+            </video>
+          </div> -->
+        
+        <!-- </div> -->
+      </div>
+      <!-- <div align="center" style="margin-top:0px; margin-bottom:0px;"> -->
+      <!-- <h3 class="subtitle has-text-centered">
+        <font size="3">
+  
+          <span class="dnerf"></span>
+          EvALign-ICL is an evaluation framework for large multimodal models (LMMs). 
+          Currently, the evaluation of LMMs spans 5 different axes; object hallucinations, answer abstention, compositionality, explainabilty and 
+          instruction following. We propose 3 setups; zero-shot, in-context learning (ICL) and different variants of ICL (X-ICL).
+        </font>
+      </div>
+      </h3> -->
+    <!-- </div> -->
+    </div>
+  </div>
+</div>  
+
+<!-- Abstract -->
+<!-- <section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Following . 
+            <br>
+            e: <strong>Eval</strong>uat<strong>i</strong>n<strong>g</strong> and Reduci<strong>n</strong>g the Flaws of Large 
+            Multimodal Models with <strong>I</strong>n-<strong>C</strong>ontext <strong>L</strong>earning), in which (1) we <strong>evaluate 10 recent open-source LMMs</strong> from 3B up to 80B parameter scale, on 5 different axes; <strong>hallucinations, 
+            abstention, compositionality, explainability and instruction following</strong>. Our evaluation on these axes 
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<br>
+<br>
+
+
+<!-- Contributions  -->
+<section class="section grey">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Findings</h2>
+  </div>
+
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> 
+            <ul>
+
+              <li><strong><i>Overview.</i></strong> Large Language Models (LLMs) have demonstrated impressive performance on multimodal tasks, without any multimodal finetuning.
+                They are the de facto building block for Large Multimodal Models (LMMs), yet, we still lack a proper understanding of their success.</li>
+                In this work, we expose frozen LLMs to image, video, audio and text inputs and analyse their internal representation with the attempt to 
+                understand their generalization beyond textual inputs.
+
+
+              <li><strong><i>Motivation and Research Questions.</i></strong> Large Language Models (LLMs) are able to generalize to multimodal inputs. 
+                Specifically, with minimal computation resources (i.e. amouting to training only a linear layer), 
+                it is possible to feed a frozen LLM, with multimodal inputs, so that the model can reason and chat about an image, 
+                video or audio. In this work, we are curios about this observation and try to investigate the following questions:
+                <br>
+
+                <li>Are multimodal inputs converted to "textual" inputs due to the connector, so that they can be simply considered as "frozen language"? </li>
+                <li>How multimodal tokens differ inside LLMs? </li>
+                <li>What are the main factors allowing LLMs to generalize to multimodal inputs?</li>
+                <li>What are the implications of this investigation on model performance, mitigating safety problems and improving computation efficiency? </li>
+                 
+                
+                </li>
+
+
+              <li><strong><i>Findings.</i></strong>.  
+                
+                <li>(1) Perceptual tokens are easily distinguishable from textual ones inside LLMs, with significantly different representations 
+                  (e.g. live in different narrow cones), and complete translation to textual tokens does not exists. </li>
+                <li>(2) Both perceptual and textual tokens activate similar LLM weights.</li>
+                <li>(3) Despite their differences, perceptual tokens are implicitly aligned to textual tokens inside LLMs. 
+                  We call this the implicit multimodal alignment effect (IMA), and argue that this is linked to architectural design, 
+                  helping LLMs to generalize. </li>
+                <li> This provide more evidence to believe that the generalization of LLMs to multimodal inputs is mainly due to their architecture.</li>
+                
+                
+              </li>
+
+              <li><strong><i>Implications.</i></strong>
+                <li>(1) We find a positive correlation between the implicit alignment score and the task 
+                  performance, suggesting that this could act as a proxy metric for model evaluation and selection.</li>
+                <li>(2) A negative correlation exists regarding hallucinations (\emph{e.g.} describing non-existing objects in images), 
+                  revealing that this problem is mainly due to misalignment between the internal perceptual and textual representations. </li>
+                <li>(3) Perceptual tokens change slightly throughout the model, thus, we propose different approaches to skip computations 
+                  (\empg{e.g.} in FFN layers), and significantly reduce the inference cost. </li>
+                <li>(4) Due to the slowly changing embeddings across layers, and the high overlap between textual and multimodal activated 
+                  weights, we compress LLMs by keeping only 1 subnetwork (called \alphasubnet) 
+                  that works well across a wide range of multimodal tasks. The code will be made public.</li>
+                
+                
+              </li>
+    
+
+
+    
+            </ul>
+          </p>
+        </div>
+      </div>
+  </div>
+  
+</section>
+<br>
+<br>
+
+<!-- 
+<section class="section hero is-small">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Analysing LMMs</h2>
+  </div>
+
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> Multimodal cones</p>
+        </div>
+      </div>
+  </div>
+  
+  <div class="columns is-centered">
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/emb_sim_layers_avg_plot_tt_pp.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/hsl24_tsne_true_labels_hist0_permodal_annotate.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+
+
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> different evolution </p>
+        </div>
+      </div>
+  </div>
+
+  <div class="columns is-centered">
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/diag_mean_simemb_sim_consecutive_layers_avg_permodal.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/median_simemb_norm_consecutive_layers_avg_permodal.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> Vovab distribution </p>
+        </div>
+      </div>
+  </div>
+
+  <div class="columns is-centered">
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 25%; object-fit: contain' src="static/images/emb_hist_layers_layer0_k1ln.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 25%; object-fit: contain' src="static/images/emb_probadist_layers_avg_modeln_consec_permodal.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 25%; object-fit: contain' src="static/images/emb_probadist_layers_avg_modeln_consec_permodal.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 25%; object-fit: contain' src="static/images/emb_probaentropy_layers_avg_modeln_permodal.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+<div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <div class="content has-text-justified">
+        <p> Ious </p>
+      </div>
+    </div>
+</div>
+
+<div class="columns is-centered">
+  <div class="column">
+    <figure class="image">
+      <div align="center" style="margin-top:0px; margin-bottom:0px;">
+        <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/ious_vicuna.jpg"/>
+        <figcaption class="teaser-overlay">
+          <div class="teaser-meta">
+            <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+          </div>
+        </figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure class="image">
+      <div align="center" style="margin-top:0px; margin-bottom:0px;">
+        <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/avg_llavavicunas0_5ViT_withtext_ious.jpg"/>
+        <figcaption class="teaser-overlay">
+          <div class="teaser-meta">
+            <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+          </div>
+        </figcaption>
+    </figure>
+  </div>
+</div>
+
+</section>
+<br>
+<br>
+
+<section class="section grey">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">What helps LLMs to generalize to multimodal tokens?</h2>
+  </div>
+
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> IMA training and inference</p>
+        </div>
+      </div>
+  </div>
+  
+  <div class="columns is-centered">
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/_imgl0_skipfirstemb_sim_layers_avg_all_epochs_skip_pp.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/max_simemb_sim_layers_avg_permodal.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <div class="content has-text-justified">
+        <p> IMA inside the block</p>
+      </div>
+    </div>
+</div>
+
+<div class="columns is-centered">
+  <div class="column">
+    <figure class="image">
+      <div align="center" style="margin-top:0px; margin-bottom:0px;">
+        <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/emb_norm_all_inside_consecutive_layers_avg.jpg"/>
+        <figcaption class="teaser-overlay">
+          <div class="teaser-meta">
+            <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+          </div>
+        </figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure class="image">
+      <div align="center" style="margin-top:0px; margin-bottom:0px;">
+        <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/emb_sim_all_inside_layers_avg.jpg"/>
+        <figcaption class="teaser-overlay">
+          <div class="teaser-meta">
+            <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+          </div>
+        </figcaption>
+    </figure>
+  </div>
+</div>
+
+
+
+
+</section>
+<br>
+<br>
+
+<section class="section hero is-small">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3">Implications</h2>
+  </div>
+
+  <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p> performance</p>
+        </div>
+      </div>
+  </div>
+  
+  <div class="columns is-centered">
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/sim_steps_vs_vqa.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <div align="center" style="margin-top:0px; margin-bottom:0px;">
+          <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/models_sim_steps_vs_vqa.jpg"/>
+          <figcaption class="teaser-overlay">
+            <div class="teaser-meta">
+              <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <div class="content has-text-justified">
+        <p> Safety</p>
+      </div>
+    </div>
+</div>
+
+<div class="columns is-centered">
+  <div class="column">
+    <figure class="image">
+      <div align="center" style="margin-top:0px; margin-bottom:0px;">
+        <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/sim_steps_vs_hall.jpg"/>
+        <figcaption class="teaser-overlay">
+          <div class="teaser-meta">
+            <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+          </div>
+        </figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure class="image">
+      <div align="center" style="margin-top:0px; margin-bottom:0px;">
+        <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/models_sim_steps_vs_hall.jpg"/>
+        <figcaption class="teaser-overlay">
+          <div class="teaser-meta">
+            <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+          </div>
+        </figcaption>
+    </figure>
+  </div>
+</div>
+
+
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <div class="content has-text-justified">
+      <p> Skippping computations</p>
+    </div>
+  </div>
+</div>
+
+<div class="columns is-centered">
+<div class="column">
+  <figure class="image">
+    <div align="center" style="margin-top:0px; margin-bottom:0px;">
+      <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/skipping_main.jpg"/>
+      <figcaption class="teaser-overlay">
+        <div class="teaser-meta">
+          <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+        </div>
+      </figcaption>
+  </figure>
+</div>
+<div class="column">
+  <figure class="image">
+    <div align="center" style="margin-top:0px; margin-bottom:0px;">
+      <img class="teaser-image" style='height: auto; width: 50%; object-fit: contain' src="static/images/LLaVA-1.5_llava_skip_ffn_all_vt_notxt_onlyskiptokens_flops.jpg"/>
+      <figcaption class="teaser-overlay">
+        <div class="teaser-meta">
+          <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+        </div>
+      </figcaption>
+  </figure>
+</div>
+</div>
+
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <div class="content has-text-justified">
+      <p> Alpha subnet </p>
+    </div>
+  </div>
+</div>
+
+<div class="columns is-centered">
+<div class="column">
+  <figure class="image">
+    <div align="center" style="margin-top:0px; margin-bottom:0px;">
+      <img class="teaser-image" style='height: auto; width: 70%; object-fit: contain' src="static/images/alphasubnet.jpg"/>
+      <figcaption class="teaser-overlay">
+        <div class="teaser-meta">
+          <span class="teaser-title"><i> We evaluate 10 mod data.</i></span>
+        </div>
+      </figcaption>
+  </figure>
+</div>
+
+</div>
+
+
+</section>
+<br>
+<br>
+ -->
+
+
+<!-- 
+
+<section class="section hero is-small">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h3 class="title is-3">Acknowledgements</h3>
+      <div class="content has-text-justified">
+        <p>
+          This work was partly supported by .
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section> -->
+
+ <br>
+
+
+<section class="section" id="BibTeX">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h3 class="title is-3">BibTeX</h3>
+    </div>
+ </div>
+  <div class="container is-max-desktop content">
+    <pre><code>
+           
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div align="center" class="container">
+    <div class="columns is-centered">
+        <div class="content">
+          <font size="3">
+            This website is borrowed from <a href="https://unival-model.github.io/">UnIVAL</a> and <a href="https://nerfies.github.io/">nerfies</a>.
+          </font>
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>
