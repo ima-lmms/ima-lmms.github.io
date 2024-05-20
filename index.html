@@ -34,7 +34,7 @@
     <div class="hero-body">
       <div class="container">
         <figure class="teaser">
-          <img class="teaser-image" style='height: auto; width: 20%; object-fit: contain' src="static/images/logo.jpg"/>
+          <img class="teaser-image" style='height: auto; width: 15%; object-fit: contain' src="static/images/logo.jpg"/>
         </figure>
       </div>
     </div>
@@ -42,6 +42,8 @@
 </div>  
 
 <br>
+<br>
+
 <!-- Title and authors -->
 <section class="hero" style="margin-top: -1cm;">
   <div class="hero-body publication-header">
@@ -217,51 +219,55 @@
             <font size="4">
             <ul>
               
-              <li><strong><i>Overview.</i></strong> Large Language Models (LLMs) have demonstrated impressive performance on multimodal tasks, without any multimodal finetuning.
+              <li><strong><i><font size="5">Overview.</font></i></strong> Large Language Models (LLMs) have demonstrated impressive performance on multimodal tasks, without any multimodal finetuning.
                 They are the de facto building block for Large Multimodal Models (LMMs), yet, we still lack a proper understanding of their success.</li>
                 In this work, we expose frozen LLMs to image, video, audio and text inputs and analyse their internal representation with the attempt to 
                 understand their generalization beyond textual inputs.
+                <br>
+                <br>
 
-
-              <li><strong><i>Motivation and Research Questions.</i></strong> Large Language Models (LLMs) are able to generalize to multimodal inputs. 
+              <li><strong><i><font size="5">Motivation and Research Questions.</font></i></strong> Large Language Models (LLMs) are able to generalize to multimodal inputs. 
                 Specifically, with minimal computation resources (i.e. amouting to training only a linear layer), 
                 it is possible to feed a frozen LLM, with multimodal inputs, so that the model can reason and chat about an image, 
                 video or audio. In this work, we are curios about this observation and try to investigate the following questions:
                 <br>
-
+                <ul>
                 <li>Are multimodal inputs converted to "textual" inputs due to the connector, so that they can be simply considered as "frozen language"? </li>
                 <li>How multimodal tokens differ inside LLMs? </li>
                 <li>What are the main factors allowing LLMs to generalize to multimodal inputs?</li>
                 <li>What are the implications of this investigation on model performance, mitigating safety problems and improving computation efficiency? </li>
                  
-                
+                </ul>
                 </li>
+                <br>
+                <br>
 
-
-              <li><strong><i>Findings.</i></strong> This works led to the following findings:
-                
-                <li>(1) Perceptual tokens are easily distinguishable from textual ones inside LLMs, with significantly different representations 
+              <li><strong><i><font size="5">Findings.</font></i></strong> This works led to the following findings:
+                <ol>
+                <li>Perceptual tokens are easily distinguishable from textual ones inside LLMs, with significantly different representations 
                   (e.g. live in different narrow cones), and complete translation to textual tokens does not exists. </li>
-                <li>(2) Both perceptual and textual tokens activate similar LLM weights.</li>
-                <li>(3) Despite their differences, perceptual tokens are implicitly aligned to textual tokens inside LLMs. 
+                <li>Both perceptual and textual tokens activate similar LLM weights.</li>
+                <li>Despite their differences, perceptual tokens are implicitly aligned to textual tokens inside LLMs. 
                   We call this the implicit multimodal alignment effect (IMA), and argue that this is linked to architectural design, 
                   helping LLMs to generalize. </li>
                 <li> This provide more evidence to believe that the generalization of LLMs to multimodal inputs is mainly due to their architecture.</li>
-                
-                
+              </ol>
+    
               </li>
-
-              <li><strong><i>Implications.</i></strong> Thse findings have several implications:
-                <li>(1) We find a positive correlation between the implicit alignment score and the task 
+              <br>
+              <br>
+              <li><strong><i><font size="5">Implications.</font></i></strong> Thse findings have several implications:
+                <ol>
+                <li>We find a positive correlation between the implicit alignment score and the task 
                   performance, suggesting that this could act as a proxy metric for model evaluation and selection.</li>
-                <li>(2) A negative correlation exists regarding hallucinations (\emph{e.g.} describing non-existing objects in images), 
+                <li>A negative correlation exists regarding hallucinations (\emph{e.g.} describing non-existing objects in images), 
                   revealing that this problem is mainly due to misalignment between the internal perceptual and textual representations. </li>
-                <li>(3) Perceptual tokens change slightly throughout the model, thus, we propose different approaches to skip computations 
+                <li>Perceptual tokens change slightly throughout the model, thus, we propose different approaches to skip computations 
                   (\empg{e.g.} in FFN layers), and significantly reduce the inference cost. </li>
-                <li>(4) Due to the slowly changing embeddings across layers, and the high overlap between textual and multimodal activated 
+                <li>Due to the slowly changing embeddings across layers, and the high overlap between textual and multimodal activated 
                   weights, we compress LLMs by keeping only 1 subnetwork (called \alphasubnet) 
                   that works well across a wide range of multimodal tasks. The code will be made public.</li>
-                
+                </ol>
                 
               </li>
     
